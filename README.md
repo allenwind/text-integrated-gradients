@@ -1,6 +1,6 @@
 # text-integrated-gradients
 
-在[text-globalmaxpool-visualization](https://github.com/allenwind/text-globalmaxpool-visualization)和[text-attentionpooling-visualization](https://github.com/allenwind/text-attentionpooling-visualization)中分别使用GlobalMaxPooling和AttentionPooling在文本分类和匹配中进行可视化的立即。结论是这两种方法都可以有效地捕捉文本中的关键信息。比起AttentionPooling在计算文本中字词的重要性权重的直观性，GlobalMaxPooling则在直觉上较难理解，在通过可视化分析后，发现Pooling后的句向量的每个元素对应着某个词向量的最大值，而该值可以作为词的重要性权重。类似的实验下，最大方差组合的句向量也能获得差不多的效果，但是GlobalAveragePooling则没有这种性质，它更像是句向量序列求平均后，依赖下游网络的拟合能力来弥补Pooling方法无法很好获取句子中关键信息的缺陷，以便获得不错的预测效果。
+在[text-globalmaxpool-visualization](https://github.com/allenwind/text-globalmaxpool-visualization)和[text-attentionpooling-visualization](https://github.com/allenwind/text-attentionpooling-visualization)中分别使用GlobalMaxPooling和AttentionPooling在文本分类和匹配中进行可视化的分析和理解。结论是这两种方法都可以有效地捕捉文本中的关键信息。比起AttentionPooling在计算文本中字词的重要性权重的直观性，GlobalMaxPooling则在直觉上较难理解，在通过可视化分析后，发现Pooling后的句向量的每个元素对应着某个词向量的最大值，而该值可以作为词的重要性权重。类似的实验下，最小方差组合的句向量也能获得差不多的效果，但是GlobalAveragePooling则没有这种性质，它更像是句向量序列求平均后，依赖下游网络的拟合能力来弥补Pooling方法无法很好获取句子中关键信息的缺陷，以便获得不错的预测效果。
 
 
 
@@ -49,4 +49,5 @@
 
 [5] https://arxiv.org/abs/1703.01365
 
-[6] https://tensorflow.google.cn/api_docs/python/tf/gradients?hl=en
+[6] https://tensorflow.google.cn/tutorials/interpretability/integrated_gradients?hl=en
+
