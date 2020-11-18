@@ -21,7 +21,7 @@ from dataset import load_weibo_senti_100k
 from dataset import load_simplifyweibo_4_moods
 from dataset import load_hotel_comment
 
-X, y, classes = load_weibo_senti_100k()
+X, y, classes = load_THUCNews_title_label()
 X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8, random_state=77236)
 
 num_classes = len(classes)
@@ -98,7 +98,6 @@ embedding_input = model.layers[1].output
 grads = GradientLayer()([model.output, embedding_input, label_input])
 
 gradient_model = Model(inputs, grads)
-gradient_model.summary()
 
 embeddings = model.layers[1].embeddings # embedding矩阵
 values = tf.Variable(embeddings) # 保存embedding矩阵以便恢复
@@ -108,18 +107,8 @@ def compute_weights(x, n=25, scale=True):
     y_pred = model.predict(x)[0]
     y_pred_id = np.argmax(y_pred)
     y_pred_in = np.array([y_pred_id])
-
-    grads = []
-    for alpha in np.linspace(0, 1, n):
-        # 让embedding矩阵渐变
-        embeddings.assign(alpha * values)
-        pred_grads = gradient_model.predict([x, y_pred_in])[0]
-        grads.append(pred_grads)
-
-    # 还原embedding矩阵值以便做其他样本的预测
-    embeddings.assign(values)
-    # 不同embedding值下梯度的均值
-    grads = np.mean(grads, axis=0)
+    grads = gradient_model.predict([x, y_pred_in])[0]
+    grads = np.array(grads)
     weights = np.sqrt(np.square(grads).sum(axis=1))
     if scale:
         weights = (weights - weights.min()) / (weights.max() - weights.min())

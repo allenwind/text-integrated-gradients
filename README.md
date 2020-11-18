@@ -13,18 +13,54 @@
 
 <font color="#f5f5ff">下</font><font color="#f5f5ff">面</font><font color="#f5f5ff">是</font><font color="#ffe0e0">文</font><font color="#ffe0e0">本</font><font color="#ffb6b6">分</font><font color="#ffb6b6">类</font><font color="#ffb6b6">任</font><font color="#ff8d8d">务</font><font color="#ff8d8d">的</font><font color="#ff6363">积</font><font color="#ff6363">分</font><font color="#ff6363">梯</font><font color="#ff3939">度</font><font color="#ff3939">可</font><font color="#ff1010">视</font><font color="#ff1010">化</font><font color="#f20000">，</font><font color="#f20000">文</font><font color="#f20000">字</font><font color="#dd0000">颜</font><font color="#dd0000">色</font><font color="#c80000">越</font><font color="#c80000">红</font><font color="#c80000">越</font><font color="#b40000">深</font><font color="#b40000">字</font><font color="#9f0000">权</font><font color="#9f0000">重</font><font color="#8a0000">越</font><font color="#8a0000">大</font><font color="#8a0000">。</font>
 
+### 梯度可视化效果
+
+作为对比，我们先看看纯梯度的效果。
+
+新闻分类示例，
+
+![](asset/text-gradients-1.png)
+
+
+正负情感分类，
+
+![](asset/text-gradients-2.png)
+
+
+酒店评价分类，
+
+![](asset/text-gradients-3.png)
+
+
+四情感分类，
+
+![](asset/text-gradients-4.png)
+
+
+
+
+
+### 积分梯度可视化效果
 
 新闻分类示例，
 
 ![](asset/text-integrated-gradients-1.png)
 
 
+
+
+
 正负情感分类，
+
+
 
 ![](asset/text-integrated-gradients-2.png)
 
 
+
 酒店评价分类，
+
+
 
 ![](asset/text-integrated-gradients-3.png)
 
@@ -33,6 +69,9 @@
 
 ![](asset/text-integrated-gradients-4.png)
 
+
+
+可以看到，相较于直接使用梯度，积分梯度定位文本的关键信息更准确。尤其是对于正负情感分类示例，两者差别更明显。
 
 
 
