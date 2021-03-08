@@ -21,6 +21,8 @@ from dataset import load_weibo_senti_100k
 from dataset import load_simplifyweibo_4_moods
 from dataset import load_hotel_comment
 
+# 纯梯度方法
+
 X, y, classes = load_THUCNews_title_label()
 X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.8, random_state=77236)
 
